@@ -8,6 +8,10 @@ import com.uca.capas.domain.Credenciales;
 
 @Controller
 public class MainController {
+	/*Username: javier
+	 * Contraseña: 1234*/
+	private String nombre = "javier";
+	private String pass = "1234";
 
 	 @GetMapping("/login")
 	    public String enviarForm(Credenciales user, Credenciales password) {
@@ -15,10 +19,10 @@ public class MainController {
 	        return "login";
 	    }
 
-	    @PostMapping("/login")
+	    @PostMapping("/validacion")
 	    public String procesarForm(Credenciales user, Credenciales password) {
 
-	    	if ("javier".equals(user) && "1234".equals(password)) {
+	    	if (user.getUser().equals(nombre) && user.getPassword().equals(pass)) {
 	        return "mostrarMensajeV";
 	    	} else {
 	    		return "mostrarMensajeF";
